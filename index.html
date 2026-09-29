@@ -3,19 +3,518 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrightDev</title>
+
+    <title>Bright Dev | Smart Digital Tools</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f9fc;
+            color: #111827;
+        }
+
+        header {
+            background: #0b1220;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 80px 7%;
+            background: linear-gradient(135deg, #eef5ff, #ffffff);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            color: #4b5563;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .secondary {
+            border: 1px solid #d1d5db;
+            color: #111827;
+            background: white;
+        }
+
+        .hero-card {
+            width: 350px;
+            background: #0b1220;
+            color: white;
+            padding: 35px;
+            border-radius: 22px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .hero-card h2 {
+            margin-bottom: 15px;
+        }
+
+        .hero-card p {
+            color: #cbd5e1;
+            font-size: 15px;
+        }
+
+        .section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+        .tools {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 28px;
+            border-radius: 15px;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .tool-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .tool-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .features {
+            background: #0b1220;
+            color: white;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            padding: 25px;
+        }
+
+        .feature h3 {
+            margin: 15px 0 10px;
+        }
+
+        .feature p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 80px 7%;
+            background: #2563eb;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+        }
+
+        .cta a {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #070d18;
+            color: #9ca3af;
+            padding: 30px 7%;
+            text-align: center;
+        }
+
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-card {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .tools,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Welcome to BrightDev 🚀</h1>
-    <p>This is my first website published with GitHub Pages.</p>
 
-    <button onclick="sayHello()">Click Me</button>
+<header>
 
-    <script>
-        function sayHello() {
-            alert("Welcome to BrightDev! 🔥");
-        }
-    </script>
+    <div class="logo">
+        Bright<span>Dev</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#tools">Tools</a>
+        <a href="#about">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <span class="tag">
+            SMART DIGITAL TOOLS
+        </span>
+
+        <h1>
+            Build smarter.<br>
+            <span>Work faster.</span>
+        </h1>
+
+        <p>
+            Bright Dev brings useful digital tools into one simple
+            platform. Designed for students, creators, developers,
+            businesses and everyday users.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#tools" class="btn primary">
+                Explore Tools
+            </a>
+
+            <a href="contact.html" class="btn secondary">
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <h2>Bright Dev</h2>
+
+        <p>
+            One platform. Useful tools.
+            Simple solutions.
+        </p>
+
+        <br>
+
+        <p>
+            We're building a growing collection
+            of digital tools to make everyday
+            tasks easier.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="tools">
+
+    <div class="section-title">
+
+        <h2>Explore Our Tools</h2>
+
+        <p>
+            Useful tools designed to save you time.
+        </p>
+
+    </div>
+
+
+    <div class="tools">
+
+        <div class="tool-card">
+            <div class="tool-icon">📝</div>
+            <h3>Text Tools</h3>
+            <p>
+                Helpful tools for writing,
+                formatting and working with text.
+            </p>
+        </div>
+
+
+        <div class="tool-card">
+            <div class="tool-icon">🧮</div>
+            <h3>Calculators</h3>
+            <p>
+                Simple calculators for everyday
+                problems and quick calculations.
+            </p>
+        </div>
+
+
+        <div class="tool-card">
+            <div class="tool-icon">💻</div>
+            <h3>Developer Tools</h3>
+            <p>
+                Useful utilities designed to help
+                developers work more efficiently.
+            </p>
+        </div>
+
+
+        <div class="tool-card">
+            <div class="tool-icon">📚</div>
+            <h3>Student Tools</h3>
+            <p>
+                Digital tools designed to help
+                students learn and work smarter.
+            </p>
+        </div>
+
+
+        <div class="tool-card">
+            <div class="tool-icon">🖼️</div>
+            <h3>Image Tools</h3>
+            <p>
+                Useful image utilities for creators
+                and everyday digital tasks.
+            </p>
+        </div>
+
+
+        <div class="tool-card">
+            <div class="tool-icon">📄</div>
+            <h3>PDF Tools</h3>
+            <p>
+                Simple tools for working with
+                documents and PDF files.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section features" id="about">
+
+    <div class="section-title">
+
+        <h2>Why Bright Dev?</h2>
+
+        <p>
+            Built around simplicity and usefulness.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="feature">
+
+            <div class="tool-icon">⚡</div>
+
+            <h3>Fast</h3>
+
+            <p>
+                Get things done quickly without
+                complicated interfaces.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="tool-icon">🎯</div>
+
+            <h3>Simple</h3>
+
+            <p>
+                Every tool is designed to be
+                straightforward and easy to use.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="tool-icon">🚀</div>
+
+            <h3>Growing</h3>
+
+            <p>
+                New tools and useful features
+                will continue to be added.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="cta">
+
+    <h2>Ready to get started?</h2>
+
+    <p>
+        Explore Bright Dev and discover useful
+        tools built for everyday tasks.
+    </p>
+
+    <a href="#tools">
+        Explore Bright Dev
+    </a>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 Bright Dev. All rights reserved.
+    </p>
+
+</footer>
+
 </body>
-  </html>
+</html>
