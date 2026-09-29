@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bright Dev | Tools</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f9fc;
+            color: #111827;
+        }
+
+        header {
+            background: #0b1220;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 70px 7% 50px;
+            background: linear-gradient(135deg, #eef5ff, #ffffff);
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            color: #6b7280;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .tools {
+            padding: 60px 7%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .tool {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+
+        .tool h2 {
+            margin-bottom: 10px;
+        }
+
+        .tool p {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        textarea,
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 14px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            min-height: 45px;
+        }
+
+        footer {
+            background: #070d18;
+            color: #9ca3af;
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .tools {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Bright<span>Dev</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="tools.html">Tools</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <h1>Bright Dev <span>Tools</span></h1>
+
+    <p>
+        Simple, useful and free digital tools designed
+        to make everyday tasks easier.
+    </p>
+
+</section>
+
+
+<section class="tools">
+
+
+    <!-- WORD COUNTER -->
+
+    <div class="tool">
+
+        <h2>📝 Word & Character Counter</h2>
+
+        <p>Count words and characters instantly.</p>
+
+        <textarea id="textInput"
+            placeholder="Type or paste your text here..."
+            oninput="countText()"></textarea>
+
+        <div class="result">
+            Words: <strong id="wordCount">0</strong>
+            <br>
+            Characters: <strong id="charCount">0</strong>
+        </div>
+
+    </div>
+
+
+    <!-- TEXT CASE CONVERTER -->
+
+    <div class="tool">
+
+        <h2>🔠 Text Case Converter</h2>
+
+        <p>Convert your text to different cases.</p>
+
+        <textarea id="caseText"
+            placeholder="Enter your text..."></textarea>
+
+        <button onclick="upperCase()">UPPERCASE</button>
+
+        <button onclick="lowerCase()">lowercase</button>
+
+        <button onclick="titleCase()">Title Case</button>
+
+    </div>
+
+
+    <!-- PERCENTAGE CALCULATOR -->
+
+    <div class="tool">
+
+        <h2>🧮 Percentage Calculator</h2>
+
+        <p>Find a percentage of any number.</p>
+
+        <input
+            type="number"
+            id="percent"
+            placeholder="Percentage (%)">
+
+        <input
+            type="number"
+            id="number"
+            placeholder="Number">
+
+        <button onclick="calculatePercentage()">
+            Calculate
+        </button>
+
+        <div class="result" id="percentageResult">
+            Result will appear here.
+        </div>
+
+    </div>
+
+
+    <!-- PASSWORD GENERATOR -->
+
+    <div class="tool">
+
+        <h2>🔐 Password Generator</h2>
+
+        <p>Create a random password.</p>
+
+        <input
+            type="number"
+            id="passwordLength"
+            placeholder="Password length"
+            value="12"
+            min="4"
+            max="50">
+
+        <button onclick="generatePassword()">
+            Generate Password
+        </button>
+
+        <div class="result" id="passwordResult">
+            Your password will appear here.
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 Bright Dev. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+    // WORD COUNTER
+
+    function countText() {
+
+        const text =
+            document.getElementById("textInput").value;
+
+        const words =
+            text.trim() === ""
+            ? 0
+            : text.trim().split(/\s+/).length;
+
+        document.getElementById("wordCount").textContent =
+            words;
+
+        document.getElementById("charCount").textContent =
+            text.length;
+    }
+
+
+    // UPPERCASE
+
+    function upperCase() {
+
+        const box =
+            document.getElementById("caseText");
+
+        box.value =
+            box.value.toUpperCase();
+    }
+
+
+    // LOWERCASE
+
+    function lowerCase() {
+
+        const box =
+            document.getElementById("caseText");
+
+        box.value =
+            box.value.toLowerCase();
+    }
+
+
+    // TITLE CASE
+
+    function titleCase() {
+
+        const box =
+            document.getElementById("caseText");
+
+        box.value =
+            box.value.toLowerCase()
+            .replace(/\b\w/g,
+            letter => letter.toUpperCase());
+    }
+
+
+    // PERCENTAGE CALCULATOR
+
+    function calculatePercentage() {
+
+        const percent =
+            Number(document.getElementById("percent").value);
+
+        const number =
+            Number(document.getElementById("number").value);
+
+        const result =
+            (percent / 100) * number;
+
+        document.getElementById("percentageResult")
+            .textContent =
+            "Result: " + result;
+    }
+
+
+    // PASSWORD GENERATOR
+
+    function generatePassword() {
+
+        const length =
+            Number(document.getElementById("passwordLength").value);
+
+        const characters =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+        let password = "";
+
+        for (let i = 0; i < length; i++) {
+
+            password +=
+                characters.charAt(
+                    Math.floor(
+                        Math.random() *
+                        characters.length
+                    )
+                );
+        }
+
+        document.getElementById("passwordResult")
+            .textContent =
+            password;
+    }
+
+</script>
+
+</body>
+</html>
