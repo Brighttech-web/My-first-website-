@@ -299,113 +299,66 @@
 
 
 <script>
+function countText() {
+    const text = document.getElementById("textInput").value;
 
-    // WORD COUNTER
+    const words = text.trim() === ""
+        ? 0
+        : text.trim().split(/\s+/).length;
 
-    function countText() {
+    document.getElementById("wordCount").textContent = words;
+    document.getElementById("charCount").textContent = text.length;
+}
 
-        const text =
-            document.getElementById("textInput").value;
+function upperCase() {
+    const box = document.getElementById("caseText");
+    box.value = box.value.toUpperCase();
+}
 
-        const words =
-            text.trim() === ""
-            ? 0
-            : text.trim().split(/\s+/).length;
+function lowerCase() {
+    const box = document.getElementById("caseText");
+    box.value = box.value.toLowerCase();
+}
 
-        document.getElementById("wordCount").textContent =
-            words;
+function titleCase() {
+    const box = document.getElementById("caseText");
 
-        document.getElementById("charCount").textContent =
-            text.length;
+    box.value = box.value
+        .toLowerCase()
+        .replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
+function calculatePercentage() {
+    const percent = Number(document.getElementById("percent").value);
+    const number = Number(document.getElementById("number").value);
+
+    const result = (percent / 100) * number;
+
+    document.getElementById("percentageResult").textContent =
+        "Result: " + result;
+}
+
+function generatePassword() {
+    const length = Number(
+        document.getElementById("passwordLength").value
+    );
+
+    const characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+    let password = "";
+
+    for (let i = 0; i < length; i++) {
+        password += characters.charAt(
+            Math.floor(Math.random() * characters.length)
+        );
     }
 
-
-    // UPPERCASE
-
-    function upperCase() {
-
-        const box =
-            document.getElementById("caseText");
-
-        box.value =
-            box.value.toUpperCase();
-    }
-
-
-    // LOWERCASE
-
-    function lowerCase() {
-
-        const box =
-            document.getElementById("caseText");
-
-        box.value =
-            box.value.toLowerCase();
-    }
-
-
-    // TITLE CASE
-
-    function titleCase() {
-
-        const box =
-            document.getElementById("caseText");
-
-        box.value =
-            box.value.toLowerCase()
-            .replace(/\b\w/g,
-            letter => letter.toUpperCase());
-    }
-
-
-    // PERCENTAGE CALCULATOR
-
-    function calculatePercentage() {
-
-        const percent =
-            Number(document.getElementById("percent").value);
-
-        const number =
-            Number(document.getElementById("number").value);
-
-        const result =
-            (percent / 100) * number;
-
-        document.getElementById("percentageResult")
-            .textContent =
-            "Result: " + result;
-    }
-
-
-    // PASSWORD GENERATOR
-
-    function generatePassword() {
-
-        const length =
-            Number(document.getElementById("passwordLength").value);
-
-        const characters =
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-
-        let password = "";
-
-        for (let i = 0; i < length; i++) {
-
-            password +=
-                characters.charAt(
-                    Math.floor(
-                        Math.random() *
-                        characters.length
-                    )
-                );
+    document.getElementById("passwordResult").textContent =
+        password;
         }
 
-        document.getElementById("passwordResult")
-            .textContent =
-            password;
-    }
-
+    
 </script>
-
 </body>
 </html>
