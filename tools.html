@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Bright Dev | Tools</title>
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
 
@@ -41,12 +40,11 @@
             color: white;
             text-decoration: none;
             margin-left: 20px;
-            font-size: 15px;
         }
 
         .hero {
             text-align: center;
-            padding: 70px 7% 50px;
+            padding: 70px 7%;
             background: linear-gradient(135deg, #eef5ff, #ffffff);
         }
 
@@ -90,8 +88,7 @@
         }
 
         textarea,
-        input,
-        select {
+        input {
             width: 100%;
             padding: 13px;
             border: 1px solid #d1d5db;
@@ -113,6 +110,7 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
+            margin: 3px;
         }
 
         button:hover {
@@ -125,6 +123,7 @@
             background: #f1f5f9;
             border-radius: 8px;
             min-height: 45px;
+            word-break: break-word;
         }
 
         footer {
@@ -132,11 +131,9 @@
             color: #9ca3af;
             text-align: center;
             padding: 30px;
-            margin-top: 30px;
         }
 
         @media (max-width: 800px) {
-
             header {
                 flex-direction: column;
                 gap: 15px;
@@ -179,8 +176,7 @@
     <h1>Bright Dev <span>Tools</span></h1>
 
     <p>
-        Simple, useful and free digital tools designed
-        to make everyday tasks easier.
+        Simple digital tools built to make everyday tasks easier.
     </p>
 
 </section>
@@ -188,18 +184,16 @@
 
 <section class="tools">
 
-
     <!-- WORD COUNTER -->
 
     <div class="tool">
 
         <h2>📝 Word & Character Counter</h2>
 
-        <p>Count words and characters instantly.</p>
+        <p>Type something below and get an instant count.</p>
 
         <textarea id="textInput"
-            placeholder="Type or paste your text here..."
-            oninput="countText()"></textarea>
+            placeholder="Type or paste your text..."></textarea>
 
         <div class="result">
             Words: <strong id="wordCount">0</strong>
@@ -210,33 +204,31 @@
     </div>
 
 
-    <!-- TEXT CASE CONVERTER -->
+    <!-- TEXT CASE -->
 
     <div class="tool">
 
         <h2>🔠 Text Case Converter</h2>
 
-        <p>Convert your text to different cases.</p>
+        <p>Change your text into different cases.</p>
 
         <textarea id="caseText"
             placeholder="Enter your text..."></textarea>
 
-        <button onclick="upperCase()">UPPERCASE</button>
-
-        <button onclick="lowerCase()">lowercase</button>
-
-        <button onclick="titleCase()">Title Case</button>
+        <button id="upperBtn">UPPERCASE</button>
+        <button id="lowerBtn">lowercase</button>
+        <button id="titleBtn">Title Case</button>
 
     </div>
 
 
-    <!-- PERCENTAGE CALCULATOR -->
+    <!-- PERCENTAGE -->
 
     <div class="tool">
 
         <h2>🧮 Percentage Calculator</h2>
 
-        <p>Find a percentage of any number.</p>
+        <p>Calculate a percentage of any number.</p>
 
         <input
             type="number"
@@ -248,7 +240,7 @@
             id="number"
             placeholder="Number">
 
-        <button onclick="calculatePercentage()">
+        <button id="calculateBtn">
             Calculate
         </button>
 
@@ -259,23 +251,22 @@
     </div>
 
 
-    <!-- PASSWORD GENERATOR -->
+    <!-- PASSWORD -->
 
     <div class="tool">
 
         <h2>🔐 Password Generator</h2>
 
-        <p>Create a random password.</p>
+        <p>Create a random password instantly.</p>
 
         <input
             type="number"
             id="passwordLength"
-            placeholder="Password length"
             value="12"
             min="4"
             max="50">
 
-        <button onclick="generatePassword()">
+        <button id="generateBtn">
             Generate Password
         </button>
 
@@ -284,7 +275,6 @@
         </div>
 
     </div>
-
 
 </section>
 
@@ -299,66 +289,118 @@
 
 
 <script>
-function countText() {
-    const text = document.getElementById("textInput").value;
 
-    const words = text.trim() === ""
-        ? 0
-        : text.trim().split(/\s+/).length;
+    // WORD COUNTER
 
-    document.getElementById("wordCount").textContent = words;
-    document.getElementById("charCount").textContent = text.length;
-}
+    const textInput = document.getElementById("textInput");
 
-function upperCase() {
-    const box = document.getElementById("caseText");
-    box.value = box.value.toUpperCase();
-}
+    textInput.addEventListener("input", function () {
 
-function lowerCase() {
-    const box = document.getElementById("caseText");
-    box.value = box.value.toLowerCase();
-}
+        const text = textInput.value;
 
-function titleCase() {
-    const box = document.getElementById("caseText");
+        const words = text.trim() === ""
+            ? 0
+            : text.trim().split(/\s+/).length;
 
-    box.value = box.value
-        .toLowerCase()
-        .replace(/\b\w/g, letter => letter.toUpperCase());
-}
+        document.getElementById("wordCount").textContent = words;
 
-function calculatePercentage() {
-    const percent = Number(document.getElementById("percent").value);
-    const number = Number(document.getElementById("number").value);
+        document.getElementById("charCount").textContent =
+            text.length;
 
-    const result = (percent / 100) * number;
+    });
 
-    document.getElementById("percentageResult").textContent =
-        "Result: " + result;
-}
 
-function generatePassword() {
-    const length = Number(
-        document.getElementById("passwordLength").value
-    );
+    // TEXT CASE CONVERTER
 
-    const characters =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+    document.getElementById("upperBtn")
+        .addEventListener("click", function () {
 
-    let password = "";
+            const box = document.getElementById("caseText");
 
-    for (let i = 0; i < length; i++) {
-        password += characters.charAt(
-            Math.floor(Math.random() * characters.length)
-        );
-    }
+            box.value = box.value.toUpperCase();
 
-    document.getElementById("passwordResult").textContent =
-        password;
-        }
+        });
 
-    
+
+    document.getElementById("lowerBtn")
+        .addEventListener("click", function () {
+
+            const box = document.getElementById("caseText");
+
+            box.value = box.value.toLowerCase();
+
+        });
+
+
+    document.getElementById("titleBtn")
+        .addEventListener("click", function () {
+
+            const box = document.getElementById("caseText");
+
+            box.value = box.value
+                .toLowerCase()
+                .replace(/\b\w/g, function(letter) {
+                    return letter.toUpperCase();
+                });
+
+        });
+
+
+    // PERCENTAGE CALCULATOR
+
+    document.getElementById("calculateBtn")
+        .addEventListener("click", function () {
+
+            const percent =
+                Number(document.getElementById("percent").value);
+
+            const number =
+                Number(document.getElementById("number").value);
+
+            if (isNaN(percent) || isNaN(number)) {
+
+                document.getElementById("percentageResult")
+                    .textContent = "Please enter both numbers.";
+
+                return;
+            }
+
+            const result = (percent / 100) * number;
+
+            document.getElementById("percentageResult")
+                .textContent = "Result: " + result;
+
+        });
+
+
+    // PASSWORD GENERATOR
+
+    document.getElementById("generateBtn")
+        .addEventListener("click", function () {
+
+            const length =
+                Number(document.getElementById("passwordLength").value);
+
+            const characters =
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+            let password = "";
+
+            for (let i = 0; i < length; i++) {
+
+                const randomIndex =
+                    Math.floor(Math.random() * characters.length);
+
+                password += characters[randomIndex];
+
+            }
+
+            document.getElementById("passwordResult")
+                .textContent = password;
+
+        });
+
 </script>
+
 </body>
 </html>
