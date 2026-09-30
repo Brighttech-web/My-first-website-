@@ -1,79 +1,75 @@
-/* =========================
-   BRIGHT DEV 2.0
-   JAVASCRIPT
-========================= */
+// Bright Dev - Main JavaScript
 
-const modal = document.getElementById("modal");
-const closeBtn = document.getElementById("closeBtn");
+// Mobile menu
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
 
-const suggestBtn = document.getElementById("suggestBtn");
-const contactSuggestion = document.getElementById("contactSuggestion");
-
-const suggestForm = document.getElementById("suggestForm");
-
-
-/* OPEN MODAL */
-
-function openModal() {
-    modal.classList.add("active");
+if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
 }
 
+// Close mobile menu when a link is clicked
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+});
 
-/* CLOSE MODAL */
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", function (e) {
+        const target = document.querySelector(this.getAttribute("href"));
 
-function closeModal() {
-    modal.classList.remove("active");
+        if (target) {
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+});
+
+// Contact button
+const contactButtons = document.querySelectorAll(".contact-btn");
+
+contactButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const contactSection = document.querySelector("#contact");
+
+        if (contactSection) {
+            contactSection.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+});
+
+// Current year in footer
+const year = document.querySelector("#year");
+
+if (year) {
+    year.textContent = new Date().getFullYear();
 }
 
+// Simple scroll animation
+const sections = document.querySelectorAll("section");
 
-suggestBtn.addEventListener("click", openModal);
-
-contactSuggestion.addEventListener("click", openModal);
-
-closeBtn.addEventListener("click", closeModal);
-
-
-/* CLOSE WHEN CLICKING OUTSIDE */
-
-modal.addEventListener("click", function(event) {
-
-    if (event.target === modal) {
-        closeModal();
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold: 0.15
     }
+);
 
-});
-
-
-/* SUGGESTION FORM */
-
-suggestForm.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const toolName = document.getElementById("toolName").value;
-    const toolReason = document.getElementById("toolReason").value;
-
-    if (toolName && toolReason) {
-
-        alert(
-            "Thanks for your suggestion! 🚀\n\n" +
-            "Tool: " + toolName
-        );
-
-        suggestForm.reset();
-
-        closeModal();
-    }
-
-});
-
-
-/* CLOSE MODAL WITH ESCAPE */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-        closeModal();
-    }
-
+sections.forEach(section => {
+    observer.observe(section);
 });
