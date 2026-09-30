@@ -1,79 +1,28 @@
-/* =========================
-   BRIGHT DEV 2.0
-   JAVASCRIPT
-========================= */
+// Bright Dev main JavaScript
 
-const modal = document.getElementById("modal");
-const closeBtn = document.getElementById("closeBtn");
+document.addEventListener("DOMContentLoaded", function () {
 
-const suggestBtn = document.getElementById("suggestBtn");
-const contactSuggestion = document.getElementById("contactSuggestion");
+    console.log("Bright Dev is ready!");
 
-const suggestForm = document.getElementById("suggestForm");
+    // Smooth scrolling for links that point to sections
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
 
+        link.addEventListener("click", function (event) {
 
-/* OPEN MODAL */
+            const target = document.querySelector(
+                this.getAttribute("href")
+            );
 
-function openModal() {
-    modal.classList.add("active");
-}
+            if (target) {
+                event.preventDefault();
 
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
 
-/* CLOSE MODAL */
+        });
 
-function closeModal() {
-    modal.classList.remove("active");
-}
-
-
-suggestBtn.addEventListener("click", openModal);
-
-contactSuggestion.addEventListener("click", openModal);
-
-closeBtn.addEventListener("click", closeModal);
-
-
-/* CLOSE WHEN CLICKING OUTSIDE */
-
-modal.addEventListener("click", function(event) {
-
-    if (event.target === modal) {
-        closeModal();
-    }
-
-});
-
-
-/* SUGGESTION FORM */
-
-suggestForm.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const toolName = document.getElementById("toolName").value;
-    const toolReason = document.getElementById("toolReason").value;
-
-    if (toolName && toolReason) {
-
-        alert(
-            "Thanks for your suggestion! 🚀\n\n" +
-            "Tool: " + toolName
-        );
-
-        suggestForm.reset();
-
-        closeModal();
-    }
-
-});
-
-
-/* CLOSE MODAL WITH ESCAPE */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-        closeModal();
-    }
+    });
 
 });
