@@ -362,3 +362,13 @@ footer p {
 .whatsapp-btn:hover {
     transform: translateY(-2px);
 }
+/* ==============================
+   BRIGHT DEV CV BUILDER
+============================== */
+
+.cv-builder-section {
+    padding: 80px 20px;
+    background: #f5f7fb;
+}
+
+/* ...rest of CV CSS... */
