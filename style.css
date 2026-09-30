@@ -350,3 +350,15 @@ footer p {
         padding: 60px 20px;
     }
 }
+.whatsapp-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+}
