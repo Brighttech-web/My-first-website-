@@ -1,1 +1,445 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f9fd;
+  color: #172033;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  background: #07152f;
+  color: white;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #4b9cff;
+}
+
+.logo span {
+  color: white;
+}
+
+.back-home {
+  color: #dbe6f7;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.back-home:hover {
+  color: #4b9cff;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.resizer-page {
+  min-height: calc(100vh - 137px);
+  padding: 70px 0 90px;
+}
+
+.page-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.small-title {
+  color: #3185e8;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.page-heading h1 {
+  font-size: 42px;
+  color: #111d33;
+  margin-bottom: 12px;
+}
+
+.page-heading > p:last-child {
+  color: #68758a;
+  font-size: 16px;
+}
+
+
+/* =========================
+   MAIN BOX
+========================= */
+
+.resizer-box {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  border: 1px solid #e1e8f1;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 12px 40px rgba(17, 38, 70, 0.07);
+}
+
+
+/* =========================
+   UPLOAD
+========================= */
+
+.upload-area {
+  border: 2px dashed #c7d8ed;
+  border-radius: 14px;
+  padding: 55px 25px;
+  text-align: center;
+  background: #f8fbff;
+  transition: 0.3s ease;
+}
+
+.upload-area:hover {
+  border-color: #3185e8;
+  background: #f3f8ff;
+}
+
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.upload-area h2 {
+  color: #15233b;
+  margin-bottom: 8px;
+}
+
+.upload-area p {
+  color: #6b778b;
+  font-size: 14px;
+}
+
+.upload-btn {
+  display: inline-block;
+  margin: 20px 0 12px;
+  padding: 13px 25px;
+  background: #3185e8;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.upload-btn:hover {
+  background: #216fc9;
+  transform: translateY(-2px);
+}
+
+.file-info {
+  font-size: 12px !important;
+}
+
+
+/* =========================
+   EDITOR
+========================= */
+
+.editor {
+  display: none;
+  margin-top: 30px;
+  gap: 35px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.editor.active {
+  display: grid;
+}
+
+.preview-section h2,
+.controls h2 {
+  font-size: 20px;
+  color: #15233b;
+  margin-bottom: 15px;
+}
+
+.image-preview {
+  width: 100%;
+  min-height: 300px;
+  border: 1px solid #e1e8f1;
+  border-radius: 12px;
+  background: #f5f7fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.image-preview img {
+  display: block;
+  max-width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.dimensions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #46546a;
+  margin-bottom: 7px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 13px 40px 13px 13px;
+  border: 1px solid #d5deea;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  color: #172033;
+}
+
+.input-group input:focus {
+  border-color: #3185e8;
+  box-shadow: 0 0 0 3px rgba(49, 133, 232, 0.1);
+}
+
+.input-group span {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  font-size: 12px;
+  color: #7c8797;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 18px 0;
+  color: #526075;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.checkbox-row input {
+  width: 16px;
+  height: 16px;
+  accent-color: #3185e8;
+}
+
+.original-size {
+  background: #f3f7fc;
+  padding: 12px;
+  border-radius: 8px;
+  color: #5e6b80;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.resize-btn,
+.reset-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 13px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.resize-btn {
+  background: #3185e8;
+  color: white;
+}
+
+.resize-btn:hover {
+  background: #216fc9;
+}
+
+.reset-btn {
+  background: #edf2f8;
+  color: #405069;
+}
+
+.reset-btn:hover {
+  background: #dfe7f1;
+}
+
+
+/* =========================
+   DOWNLOAD
+========================= */
+
+.download-section {
+  display: none;
+  text-align: center;
+  margin-top: 35px;
+  padding: 30px;
+  background: #f3f8ff;
+  border-radius: 12px;
+}
+
+.download-section.active {
+  display: block;
+}
+
+.success-icon {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: #3185e8;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.download-section h2 {
+  color: #15233b;
+  margin-bottom: 7px;
+}
+
+.download-section p {
+  color: #68758a;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.download-btn {
+  display: inline-block;
+  background: #3185e8;
+  color: white;
+  padding: 13px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #216fc9;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  background: #07152f;
+  color: #aebbd0;
+  padding: 22px 0;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+  .resizer-page {
+    padding: 50px 0 70px;
+  }
+
+  .resizer-box {
+    padding: 20px;
+  }
+
+  .editor.active {
+    grid-template-columns: 1fr;
+  }
+
+  .page-heading h1 {
+    font-size: 35px;
+  }
+
+  .image-preview {
+    min-height: 250px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .nav-container {
+    min-height: 65px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .back-home {
+    font-size: 12px;
+  }
+
+  .dimensions {
+    grid-template-columns: 1fr;
+  }
+
+  .upload-area {
+    padding: 40px 15px;
+  }
+
+}
