@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CV Builder | BrightDev</title>
+
+    <link rel="stylesheet" href="cv-builder.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="topbar">
+        <div class="logo">
+            Bright<span>Dev</span>
+        </div>
+
+        <a href="tools.html" class="back-btn">
+            ← Back to Tools
+        </a>
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="cv-container">
+
+        <!-- CV FORM -->
+        <section class="builder">
+
+            <h1>CV Builder</h1>
+
+            <p class="intro">
+                Create a professional CV easily and download it as a PDF.
+            </p>
+
+
+            <!-- PERSONAL INFORMATION -->
+            <div class="form-section">
+
+                <h2>Personal Information</h2>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Full Name"
+                >
+
+                <input
+                    type="text"
+                    id="job"
+                    placeholder="Professional Title"
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                >
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Phone Number"
+                >
+
+                <input
+                    type="text"
+                    id="location"
+                    placeholder="Location"
+                >
+
+                <textarea
+                    id="summary"
+                    placeholder="Professional Summary"
+                ></textarea>
+
+            </div>
+
+
+            <!-- EDUCATION -->
+            <div class="form-section">
+
+                <h2>Education</h2>
+
+                <textarea
+                    id="education"
+                    placeholder="Example: SSCE - Bright Future College, 2025"
+                ></textarea>
+
+            </div>
+
+
+            <!-- EXPERIENCE -->
+            <div class="form-section">
+
+                <h2>Work Experience</h2>
+
+                <textarea
+                    id="experience"
+                    placeholder="Example: Sales Assistant - ABC Company (2024 - 2025)"
+                ></textarea>
+
+            </div>
+
+
+            <!-- SKILLS -->
+            <div class="form-section">
+
+                <h2>Skills</h2>
+
+                <textarea
+                    id="skills"
+                    placeholder="Example: Communication, Leadership, Microsoft Office, Teamwork"
+                ></textarea>
+
+            </div>
+
+
+            <!-- REFERENCES -->
+            <div class="form-section">
+
+                <h2>References</h2>
+
+                <textarea
+                    id="references"
+                    placeholder="References available upon request"
+                ></textarea>
+
+            </div>
+
+
+            <!-- DOWNLOAD -->
+            <button
+                class="download-btn"
+                onclick="downloadCV()"
+            >
+                Download / Save as PDF
+            </button>
+
+        </section>
+
+
+
+        <!-- CV PREVIEW -->
+        <section class="preview-area">
+
+            <div class="cv-paper" id="cvPaper">
+
+
+                <!-- CV HEADER -->
+                <div class="cv-header">
+
+                    <h1 id="previewName">
+                        Your Name
+                    </h1>
+
+                    <h3 id="previewJob">
+                        Professional Title
+                    </h3>
+
+                    <p>
+
+                        <span id="previewEmail">
+                            email@example.com
+                        </span>
+
+                        <span> | </span>
+
+                        <span id="previewPhone">
+                            Phone Number
+                        </span>
+
+                        <span> | </span>
+
+                        <span id="previewLocation">
+                            Location
+                        </span>
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- PROFILE -->
+                <div class="cv-section">
+
+                    <h2>PROFILE</h2>
+
+                    <p id="previewSummary">
+                        Your professional summary will appear here.
+                    </p>
+
+                </div>
+
+
+
+                <!-- EDUCATION -->
+                <div class="cv-section">
+
+                    <h2>EDUCATION</h2>
+
+                    <p id="previewEducation">
+                        Your education will appear here.
+                    </p>
+
+                </div>
+
+
+
+                <!-- EXPERIENCE -->
+                <div class="cv-section">
+
+                    <h2>WORK EXPERIENCE</h2>
+
+                    <p id="previewExperience">
+                       
