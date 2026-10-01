@@ -1,406 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bright Dev | Tools</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #f7f9fc;
-            color: #111827;
-        }
-
-        header {
-            background: #0b1220;
-            color: white;
-            padding: 18px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #3b82f6;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 70px 7%;
-            background: linear-gradient(135deg, #eef5ff, #ffffff);
-        }
-
-        .hero h1 {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 span {
-            color: #2563eb;
-        }
-
-        .hero p {
-            color: #6b7280;
-            font-size: 17px;
-            line-height: 1.6;
-        }
-
-        .tools {
-            padding: 60px 7%;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .tool {
-            background: white;
-            padding: 30px;
-            border-radius: 18px;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-        }
-
-        .tool h2 {
-            margin-bottom: 10px;
-        }
-
-        .tool p {
-            color: #6b7280;
-            margin-bottom: 20px;
-        }
-
-        textarea,
-        input {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            font-size: 15px;
-        }
-
-        textarea {
-            min-height: 130px;
-            resize: vertical;
-        }
-
-        button {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            margin: 3px;
-        }
-
-        button:hover {
-            background: #1d4ed8;
-        }
-
-        .result {
-            margin-top: 15px;
-            padding: 14px;
-            background: #f1f5f9;
-            border-radius: 8px;
-            min-height: 45px;
-            word-break: break-word;
-        }
-
-        footer {
-            background: #070d18;
-            color: #9ca3af;
-            text-align: center;
-            padding: 30px;
-        }
-
-        @media (max-width: 800px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 0 7px;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .tools {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Resizer | Bright Dev</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+  <header class="tool-header">
+    <a href="index.html" class="logo">Bright<span>Dev</span></a>
+    <a href="index.html" class="back-btn">← Back Home</a>
+  </header>
 
-    <div class="logo">
-        Bright<span>Dev</span>
-    </div>
+  <main class="tool-page">
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="tools.html">Tools</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+    <section class="tool-intro">
+      <h1>Image Resizer</h1>
+      <p>Resize your images quickly and easily with Bright Dev.</p>
+    </section>
 
-</header>
+    <section class="resizer-card">
 
+      <label for="imageInput" class="upload-box">
+        <div class="upload-icon">📷</div>
+        <h2>Choose an Image</h2>
+        <p>Click here to upload your image</p>
+        <input type="file" id="imageInput" accept="image/*">
+      </label>
 
-<section class="hero">
+      <div id="previewArea" class="preview-area" style="display:none;">
 
-    <h1>Bright Dev <span>Tools</span></h1>
+        <img id="imagePreview" alt="Image Preview">
 
-    <p>
-        Simple digital tools built to make everyday tasks easier.
-    </p>
+        <div class="size-controls">
 
-</section>
+          <div class="input-group">
+            <label for="width">Width</label>
+            <input type="number" id="width">
+          </div>
 
+          <div class="input-group">
+            <label for="height">Height</label>
+            <input type="number" id="height">
+          </div>
 
-<section class="tools">
-
-    <!-- WORD COUNTER -->
-
-    <div class="tool">
-
-        <h2>📝 Word & Character Counter</h2>
-
-        <p>Type something below and get an instant count.</p>
-
-        <textarea id="textInput"
-            placeholder="Type or paste your text..."></textarea>
-
-        <div class="result">
-            Words: <strong id="wordCount">0</strong>
-            <br>
-            Characters: <strong id="charCount">0</strong>
         </div>
 
-    </div>
+        <label class="checkbox-label">
+          <input type="checkbox" id="lockRatio" checked>
+          Keep aspect ratio
+        </label>
 
-
-    <!-- TEXT CASE -->
-
-    <div class="tool">
-
-        <h2>🔠 Text Case Converter</h2>
-
-        <p>Change your text into different cases.</p>
-
-        <textarea id="caseText"
-            placeholder="Enter your text..."></textarea>
-
-        <button id="upperBtn">UPPERCASE</button>
-        <button id="lowerBtn">lowercase</button>
-        <button id="titleBtn">Title Case</button>
-
-    </div>
-
-
-    <!-- PERCENTAGE -->
-
-    <div class="tool">
-
-        <h2>🧮 Percentage Calculator</h2>
-
-        <p>Calculate a percentage of any number.</p>
-
-        <input
-            type="number"
-            id="percent"
-            placeholder="Percentage (%)">
-
-        <input
-            type="number"
-            id="number"
-            placeholder="Number">
-
-        <button id="calculateBtn">
-            Calculate
+        <button id="resizeBtn" class="primary-btn">
+          Resize Image
         </button>
 
-        <div class="result" id="percentageResult">
-            Result will appear here.
-        </div>
+        <a id="downloadBtn" class="download-btn" style="display:none;">
+          Download Image
+        </a>
 
-    </div>
+      </div>
 
+    </section>
 
-    <!-- PASSWORD -->
+  </main>
 
-    <div class="tool">
+  <script>
+    const imageInput = document.getElementById("imageInput");
+    const imagePreview = document.getElementById("imagePreview");
+    const previewArea = document.getElementById("previewArea");
+    const widthInput = document.getElementById("width");
+    const heightInput = document.getElementById("height");
+    const lockRatio = document.getElementById("lockRatio");
+    const resizeBtn = document.getElementById("resizeBtn");
+    const downloadBtn = document.getElementById("downloadBtn");
 
-        <h2>🔐 Password Generator</h2>
+    let originalWidth = 0;
+    let originalHeight = 0;
+    let imageFile = null;
 
-        <p>Create a random password instantly.</p>
+    imageInput.addEventListener("change", function () {
 
-        <input
-            type="number"
-            id="passwordLength"
-            value="12"
-            min="4"
-            max="50">
+      imageFile = this.files[0];
 
-        <button id="generateBtn">
-            Generate Password
-        </button>
+      if (!imageFile) return;
 
-        <div class="result" id="passwordResult">
-            Your password will appear here.
-        </div>
+      const reader = new FileReader();
 
-    </div>
+      reader.onload = function (event) {
 
-</section>
+        imagePreview.src = event.target.result;
 
+        imagePreview.onload = function () {
 
-<footer>
+          originalWidth = imagePreview.naturalWidth;
+          originalHeight = imagePreview.naturalHeight;
 
-    <p>
-        © 2026 Bright Dev. All rights reserved.
-    </p>
+          widthInput.value = originalWidth;
+          heightInput.value = originalHeight;
 
-</footer>
+          previewArea.style.display = "block";
+        };
+      };
 
-
-<script>
-
-    // WORD COUNTER
-
-    const textInput = document.getElementById("textInput");
-
-    textInput.addEventListener("input", function () {
-
-        const text = textInput.value;
-
-        const words = text.trim() === ""
-            ? 0
-            : text.trim().split(/\s+/).length;
-
-        document.getElementById("wordCount").textContent = words;
-
-        document.getElementById("charCount").textContent =
-            text.length;
-
+      reader.readAsDataURL(imageFile);
     });
 
+    widthInput.addEventListener("input", function () {
 
-    // TEXT CASE CONVERTER
+      if (lockRatio.checked && originalWidth) {
 
-    document.getElementById("upperBtn")
-        .addEventListener("click", function () {
+        const newWidth = Number(widthInput.value);
 
-            const box = document.getElementById("caseText");
+        heightInput.value = Math.round(
+          newWidth * originalHeight / originalWidth
+        );
+      }
+    });
 
-            box.value = box.value.toUpperCase();
+    heightInput.addEventListener("input", function () {
 
-        });
+      if (lockRatio.checked && originalHeight) {
 
+        const newHeight = Number(heightInput.value);
 
-    document.getElementById("lowerBtn")
-        .addEventListener("click", function () {
+        widthInput.value = Math.round(
+          newHeight * originalWidth / originalHeight
+        );
+      }
+    });
 
-            const box = document.getElementById("caseText");
+    resizeBtn.addEventListener("click", function () {
 
-            box.value = box.value.toLowerCase();
+      if (!imageFile) return;
 
-        });
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
 
+      const newWidth = Number(widthInput.value);
+      const newHeight = Number(heightInput.value);
 
-    document.getElementById("titleBtn")
-        .addEventListener("click", function () {
+      if (newWidth <= 0 || newHeight <= 0) {
+        alert("Please enter a valid width and height.");
+        return;
+      }
 
-            const box = document.getElementById("caseText");
+      canvas.width = newWidth;
+      canvas.height = newHeight;
 
-            box.value = box.value
-                .toLowerCase()
-                .replace(/\b\w/g, function(letter) {
-                    return letter.toUpperCase();
-                });
+      ctx.drawImage(
+        imagePreview,
+        0,
+        0,
+        newWidth,
+        newHeight
+      );
 
-        });
+      canvas.toBlob(function (blob) {
 
+        const url = URL.createObjectURL(blob);
 
-    // PERCENTAGE CALCULATOR
+        downloadBtn.href = url;
+        downloadBtn.download = "brightdev-resized-image.png";
+        downloadBtn.style.display = "inline-block";
 
-    document.getElementById("calculateBtn")
-        .addEventListener("click", function () {
+        downloadBtn.textContent = "⬇ Download Resized Image";
 
-            const percent =
-                Number(document.getElementById("percent").value);
-
-            const number =
-                Number(document.getElementById("number").value);
-
-            if (isNaN(percent) || isNaN(number)) {
-
-                document.getElementById("percentageResult")
-                    .textContent = "Please enter both numbers.";
-
-                return;
-            }
-
-            const result = (percent / 100) * number;
-
-            document.getElementById("percentageResult")
-                .textContent = "Result: " + result;
-
-        });
-
-
-    // PASSWORD GENERATOR
-
-    document.getElementById("generateBtn")
-        .addEventListener("click", function () {
-
-            const length =
-                Number(document.getElementById("passwordLength").value);
-
-            const characters =
-                "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-
-            let password = "";
-
-            for (let i = 0; i < length; i++) {
-
-                const randomIndex =
-                    Math.floor(Math.random() * characters.length);
-
-                password += characters[randomIndex];
-
-            }
-
-            document.getElementById("passwordResult")
-                .textContent = password;
-
-        });
-
-</script>
+      }, "image/png");
+    });
+  </script>
 
 </body>
 </html>
