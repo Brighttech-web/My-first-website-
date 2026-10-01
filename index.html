@@ -1,497 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>BrightDev — Smart Digital Tools</title>
+  <title>Bright Dev | Digital Tools</title>
 
-    <meta
-        name="description"
-        content="BrightDev provides simple, useful digital tools for students, creators, businesses and everyday users."
-    >
-
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <header class="header">
+  <!-- ================================
+       HEADER
+  ================================= -->
 
-        <div class="nav-container">
+  <header>
 
-            <a href="index.html" class="logo">
-                Bright<span>Dev</span>
-            </a>
+    <a href="index.html" class="logo">
+      Bright<span>Dev</span>
+    </a>
 
-            <nav class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="tools.html" class="nav-link">Tools</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-            <div class="nav-actions">
+  </header>
 
-                <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
-                    ☀
-                </button>
 
-                <a href="tools.html" class="get-started">
-                    Get Started
-                </a>
+  <!-- ================================
+       HERO
+  ================================= -->
 
-                <button id="menuToggle" class="menu-btn" aria-label="Open menu">
-                    ☰
-                </button>
+  <section class="hero" id="home">
 
-            </div>
+    <div class="hero-content">
 
-        </div>
+      <h1>
+        Simple Tools.<br>
+        <span>Bright Ideas.</span>
+      </h1>
 
-    </header>
+      <p>
+        Welcome to Bright Dev — a collection of simple,
+        useful and easy-to-use digital tools.
+      </p>
 
+      <a href="#tools" class="btn">
+        Explore Tools
+      </a>
 
-    <!-- ================= HERO ================= -->
-    <main>
+    </div>
 
-        <section class="hero" id="home">
+  </section>
 
-            <div class="hero-container">
 
-                <div class="hero-content">
+  <!-- ================================
+       TOOLS
+  ================================= -->
 
-                    <div class="hero-badge">
-                        SMART DIGITAL TOOLS
-                    </div>
+  <section id="tools">
 
-                    <h1>
-                        Build smarter.<br>
-                        <span>Work faster.</span>
-                    </h1>
+    <div class="section-title">
 
-                    <p>
-                        BrightDev brings useful digital tools into one simple
-                        platform. Designed for students, creators, developers,
-                        businesses and everyday users.
-                    </p>
+      <h2>Our Tools</h2>
 
-                    <div class="hero-buttons">
+      <p>
+        Useful digital tools designed to make everyday tasks easier.
+      </p>
 
-                        <a href="tools.html" class="primary-btn">
-                            Explore Tools <span>→</span>
-                        </a>
+    </div>
 
-                        <a href="#about" class="secondary-btn">
-                            Learn More
-                        </a>
 
-                    </div>
+    <div class="tools-grid">
 
-                    <div class="hero-note">
-                        <span>✓</span> Simple
-                        <span>✓</span> Fast
-                        <span>✓</span> Useful
-                    </div>
 
-                </div>
+      <!-- CV BUILDER -->
 
+      <div class="tool-card">
 
-                <!-- Hero visual -->
-                <div class="hero-visual">
+        <div class="icon">📄</div>
 
-                    <div class="glow glow-one"></div>
-                    <div class="glow glow-two"></div>
+        <h3>CV Builder</h3>
 
-                    <div class="floating-card card-document">
-                        📄
-                    </div>
+        <p>
+          Create a professional CV quickly and easily.
+        </p>
 
-                    <div class="floating-card card-image">
-                        🖼️
-                    </div>
+        <a href="#">
+          Try CV Builder →
+        </a>
 
-                    <div class="floating-card card-pdf">
-                        PDF
-                    </div>
+      </div>
 
-                    <div class="floating-card card-tools">
-                        ⚙️
-                    </div>
 
-                    <div class="laptop">
+      <!-- IMAGE RESIZER -->
 
-                        <div class="laptop-screen">
+      <div class="tool-card">
 
-                            <div class="screen-logo">
-                                Bright<span>Dev</span>
-                            </div>
+        <div class="icon">🖼️</div>
 
-                            <p>Your tools. Your success.</p>
+        <h3>Image Resizer</h3>
 
-                            <div class="screen-line"></div>
-                            <div class="screen-line short"></div>
+        <p>
+          Resize your images quickly while keeping them looking great.
+        </p>
 
-                        </div>
+        <a href="image-resizer.html">
+          Try Image Resizer →
+        </a>
 
-                        <div class="laptop-base"></div>
+      </div>
 
-                    </div>
 
-                </div>
+      <!-- IMAGE COMPRESSOR -->
 
-            </div>
+      <div class="tool-card">
 
-        </section>
+        <div class="icon">📦</div>
 
+        <h3>Image Compressor</h3>
 
-        <!-- ================= TOOLS PREVIEW ================= -->
-        <section class="tools-preview" id="tools">
+        <p>
+          Reduce image file size for easier sharing and uploading.
+        </p>
 
-            <div class="section-container">
+        <a href="#">
+          Coming Soon →
+        </a>
 
-                <div class="section-heading">
+      </div>
 
-                    <div class="section-label">
-                        OUR TOOLS
-                    </div>
 
-                    <h2>
-                        Everything you need<br>
-                        <span>in one place.</span>
-                    </h2>
+      <!-- PDF TOOLS -->
 
-                    <p>
-                        Choose a tool and get the job done quickly and easily.
-                    </p>
+      <div class="tool-card">
 
-                </div>
+        <div class="icon">📑</div>
 
+        <h3>PDF Tools</h3>
 
-                <div class="tool-grid">
+        <p>
+          Useful tools for working with PDF documents.
+        </p>
 
-                    <a href="tools.html" class="tool-card blue-card">
-                        <div class="tool-icon">📄</div>
+        <a href="#">
+          Coming Soon →
+        </a>
 
-                        <div>
-                            <h3>CV Builder</h3>
-                            <p>
-                                Create a professional CV and resume in minutes.
-                            </p>
-                        </div>
+      </div>
 
-                        <span class="card-arrow">→</span>
-                    </a>
 
+    </div>
 
-                    <a href="tools.html" class="tool-card green-card">
-                        <div class="tool-icon">✉️</div>
+  </section>
 
-                        <div>
-                            <h3>Cover Letters</h3>
-                            <p>
-                                Write powerful cover letters and applications.
-                            </p>
-                        </div>
 
-                        <span class="card-arrow">→</span>
-                    </a>
+  <!-- ================================
+       ABOUT
+  ================================= -->
 
+  <section class="about" id="about">
 
-                    <a href="tools.html" class="tool-card purple-card">
-                        <div class="tool-icon">🖼️</div>
+    <div class="section-title">
 
-                        <div>
-                            <h3>Image Tools</h3>
-                            <p>
-                                Resize, compress and manage your images.
-                            </p>
-                        </div>
+      <h2>About Bright Dev</h2>
 
-                        <span class="card-arrow">→</span>
-                    </a>
+    </div>
 
+    <div class="about-content">
 
-                    <a href="tools.html" class="tool-card red-card">
-                        <div class="tool-icon">📑</div>
+      <p>
+        Bright Dev is a growing digital platform focused on
+        creating simple, useful and accessible tools that help
+        people get everyday digital tasks done faster.
+      </p>
 
-                        <div>
-                            <h3>PDF Tools</h3>
-                            <p>
-                                Manage, convert and work with PDF files.
-                            </p>
-                        </div>
+    </div>
 
-                        <span class="card-arrow">→</span>
-                    </a>
+  </section>
 
 
-                    <a href="tools.html" class="tool-card orange-card">
-                        <div class="tool-icon">💼</div>
+  <!-- ================================
+       CONTACT
+  ================================= -->
 
-                        <div>
-                            <h3>Business Tools</h3>
-                            <p>
-                                Useful tools for business and productivity.
-                            </p>
-                        </div>
+  <section class="contact" id="contact">
 
-                        <span class="card-arrow">→</span>
-                    </a>
+    <div class="section-title">
 
+      <h2>Contact Us</h2>
 
-                    <a href="tools.html" class="tool-card cyan-card">
-                        <div class="tool-icon">🔢</div>
+      <p>
+        Have a question or want to get in touch?
+      </p>
 
-                        <div>
-                            <h3>Calculators</h3>
-                            <p>
-                                Get quick results for everyday calculations.
-                            </p>
-                        </div>
+    </div>
 
-                        <span class="card-arrow">→</span>
-                    </a>
 
-                </div>
+    <div class="contact-box">
 
+      <p>
+        Email:
+        <a href="mailto:brightdev@gmail.com">
+          brightdev@gmail.com
+        </a>
+      </p>
 
-                <div class="view-tools">
-                    <a href="tools.html">
-                        View All Tools →
-                    </a>
-                </div>
+      <p>
+        WhatsApp:
+        <a href="https://wa.me/2347056324450" target="_blank">
+          Chat with us on WhatsApp
+        </a>
+      </p>
 
-            </div>
+    </div>
 
-        </section>
+  </section>
 
 
-        <!-- ================= HOW IT WORKS ================= -->
-        <section class="how-section">
+  <!-- ================================
+       FOOTER
+  ================================= -->
 
-            <div class="section-container">
+  <footer>
 
-                <div class="how-heading">
+    <p>
+      © 2026 Bright Dev. All rights reserved.
+    </p>
 
-                    <div class="section-label light-label">
-                        HOW IT WORKS
-                    </div>
+  </footer>
 
-                    <h2>
-                        Get started in <span>3 easy steps.</span>
-                    </h2>
-
-                    <p>
-                        No complicated steps. Just choose, fill in and get
-                        your result.
-                    </p>
-
-                </div>
-
-
-                <div class="steps">
-
-                    <div class="step">
-
-                        <div class="step-number">
-                            1
-                        </div>
-
-                        <div>
-                            <h3>Choose a Tool</h3>
-
-                            <p>
-                                Select the tool you want from our collection.
-                            </p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="step-number">
-                            2
-                        </div>
-
-                        <div>
-                            <h3>Fill in Your Details</h3>
-
-                            <p>
-                                Add the required information or upload your
-                                files.
-                            </p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="step-number">
-                            3
-                        </div>
-
-                        <div>
-                            <h3>Get Your Result</h3>
-
-                            <p>
-                                Preview, edit and download your finished work.
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= ABOUT ================= -->
-        <section class="about-section" id="about">
-
-            <div class="section-container about-container">
-
-                <div class="about-content">
-
-                    <div class="section-label">
-                        ABOUT BRIGHTDEV
-                    </div>
-
-                    <h2>
-                        Simple tools for a
-                        <span>brighter digital future.</span>
-                    </h2>
-
-                    <p>
-                        BrightDev is being built to make everyday digital
-                        tasks easier. Instead of searching through different
-                        websites for different jobs, you can find useful
-                        tools in one simple platform.
-                    </p>
-
-                    <p>
-                        Whether you are a student, creator, job seeker,
-                        business owner or everyday internet user, BrightDev
-                        is designed to help you get things done faster.
-                    </p>
-
-                    <a href="tools.html" class="primary-btn">
-                        Explore BrightDev →
-                    </a>
-
-                </div>
-
-
-                <div class="about-box">
-
-                    <div class="about-stat">
-                        <strong>01</strong>
-                        <span>Simple to use</span>
-                    </div>
-
-                    <div class="about-stat">
-                        <strong>02</strong>
-                        <span>Useful tools</span>
-                    </div>
-
-                    <div class="about-stat">
-                        <strong>03</strong>
-                        <span>Built for everyone</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CTA ================= -->
-        <section class="cta-section">
-
-            <div class="cta-container">
-
-                <div>
-                    <div class="section-label">
-                        READY TO GET STARTED?
-                    </div>
-
-                    <h2>
-                        Your goals.<br>
-                        <span>Our tools.</span>
-                    </h2>
-
-                    <p>
-                        Explore BrightDev and get things done faster.
-                    </p>
-                </div>
-
-                <a href="tools.html" class="primary-btn white-btn">
-                    Explore Tools →
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-    <footer class="footer" id="contact">
-
-        <div class="footer-container">
-
-            <div class="footer-brand">
-
-                <a href="index.html" class="logo">
-                    Bright<span>Dev</span>
-                </a>
-
-                <p>
-                    Smart tools for a brighter future.
-                </p>
-
-            </div>
-
-
-            <div class="footer-links">
-
-                <a href="#home">Home</a>
-                <a href="tools.html">Tools</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-
-            </div>
-
-
-            <div class="footer-social">
-
-                <a href="#" aria-label="Facebook">f</a>
-                <a href="#" aria-label="WhatsApp">◉</a>
-                <a href="#" aria-label="Telegram">➤</a>
-                <a href="#" aria-label="YouTube">▶</a>
-
-            </div>
-
-
-            <div class="copyright">
-
-                © 2026 BrightDev. All rights reserved.
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <script src="script.js"></script>
 
 </body>
+
 </html>
