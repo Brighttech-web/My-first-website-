@@ -1,1 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Image Resizer | Bright Dev</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="tool-header">
+
+    <a href="index.html" class="logo">
+      Bright<span>Dev</span>
+    </a>
+
+    <a href="index.html" class="back-btn">
+      ← Back Home
+    </a>
+
+  </header>
+
+
+  <!-- IMAGE RESIZER -->
+
+  <main class="tool-page">
+
+    <div class="tool-intro">
+
+      <h1>Image Resizer</h1>
+
+      <p>
+        Resize your images quickly and easily with Bright Dev.
+      </p>
+
+    </div>
+
+
+    <div class="resizer-card">
+
+
+      <!-- UPLOAD -->
+
+      <label for="imageInput" class="upload-box">
+
+        <div class="upload-icon">
+          🖼️
+        </div>
+
+        <h2>Choose an Image</h2>
+
+        <p>
+          Click here to upload your image
+        </p>
+
+        <input
+          type="file"
+          id="imageInput"
+          accept="image/*"
+        >
+
+      </label>
+
+
+      <!-- IMAGE PREVIEW -->
+
+      <div
+        id="previewArea"
+        class="preview-area"
+        style="display: none;"
+      >
+
+        <img
+          id="imagePreview"
+          alt="Image Preview"
+        >
+
+
+        <!-- WIDTH & HEIGHT -->
+
+        <div class="size-controls">
+
+          <div class="input-group">
+
+            <label for="width">
+              Width
+            </label>
+
+            <input
+              type="number"
+              id="width"
+              min="1"
+            >
+
+          </div>
+
+
+          <div class="input-group">
+
+            <label for="height">
+              Height
+            </label>
+
+            <input
+              type="number"
+              id="height"
+              min="1"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- ASPECT RATIO -->
+
+        <label class="checkbox-label">
+
+          <input
+            type="checkbox"
+            id="lockRatio"
+            checked
+          >
+
+          Keep aspect ratio
+
+        </label>
+
+
+        <!-- RESIZE BUTTON -->
+
+        <button
+          id="resizeBtn"
+          class="primary-btn"
+        >
+          Resize Image
+        </button>
+
+
+        <!-- DOWNLOAD -->
+
+        <a
+          id="downloadBtn"
+          class="download-btn"
+          style="display: none;"
+        >
+          Download Resized Image
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- IMAGE RESIZER JAVASCRIPT -->
+
+  <script>
+
+    const imageInput =
+      document.getElementById("imageInput");
+
+    const imagePreview =
+      document.getElementById("imagePreview");
+
+    const previewArea =
+      document.getElementById("previewArea");
+
+    const widthInput =
+      document.getElementById("width");
+
+    const heightInput =
+      document.getElementById("height");
+
+    const lockRatio =
+      document.getElementById("lockRatio");
+
+    const resizeBtn =
+      document.getElementById("resizeBtn");
+
+    const downloadBtn =
+      document.getElementById("downloadBtn");
+
+
+    let originalWidth = 0;
+    let originalHeight = 0;
+
+
+    /* SELECT IMAGE */
+
+    imageInput.addEventListener(
+      "change",
+      function () {
+
+        const file = this.files[0];
+
+        if (!file) {
+          return;
+        }
+
+
+        const reader =
+          new FileReader();
+
+
+        reader.onload =
+          function (event) {
+
+            imagePreview.src =
+              event.target.result;
+
+
+            imagePreview.onload =
+              function () {
+
+                originalWidth =
+                  imagePreview.naturalWidth;
+
+                originalHeight =
+                  imagePreview.naturalHeight;
+
+
+                widthInput.value =
+                  originalWidth;
+
+                heightInput.value =
+                  originalHeight;
+
+
+                previewArea.style.display =
+                  "block";
+
+              };
+
+          };
+
+
+        reader.readAsDataURL(file);
+
+      }
+    );
+
+
+    /* WIDTH */
+
+    widthInput.addEventListener(
+      "input",
+      function () {
+
+        if (
+          lockRatio.checked &&
+          originalWidth > 0
+        ) {
+
+          const newWidth =
+            Number(widthInput.value);
+
+
+          heightInput.value =
+            Math.round(
+              newWidth *
+              originalHeight /
+              originalWidth
+            );
+
+        }
+
+      }
+    );
+
+
+    /* HEIGHT */
+
+    heightInput.addEventListener(
+      "input",
+      function () {
+
+        if (
+          lockRatio.checked &&
+          originalHeight > 0
+        ) {
+
+          const newHeight =
+            Number(heightInput.value);
+
+
+          widthInput.value =
+            Math.round(
+              newHeight *
+              originalWidth /
+              originalHeight
+            );
+
+        }
+
+      }
+    );
+
+
+    /* RESIZE */
+
+    resizeBtn.addEventListener(
+      "click",
+      function () {
+
+        const newWidth =
+          Number(widthInput.value);
+
+        const newHeight =
+          Number(heightInput.value);
+
+
+        if (
+          newWidth <= 0 ||
+          newHeight <= 0
+        ) {
+
+          alert(
+            "Please enter a valid width and height."
+          );
+
+          return;
+        }
+
+
+        const canvas =
+          document.createElement("canvas");
+
+
+        const ctx =
+          canvas.getContext("2d");
+
+
+        canvas.width =
+          newWidth;
+
+        canvas.height =
+          newHeight;
+
+
+        ctx.drawImage(
+          imagePreview,
+          0,
+          0,
+          newWidth,
+          newHeight
+        );
+
+
+        canvas.toBlob(
+          function (blob) {
+
+            const url =
+              URL.createObjectURL(blob);
+
+
+            downloadBtn.href =
+              url;
+
+
+            downloadBtn.download =
+              "brightdev-resized-image.png";
+
+
+            downloadBtn.style.display =
+              "inline-block";
+
+
+            downloadBtn.textContent =
+              "⬇ Download Resized Image";
+
+          },
+          "image/png"
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>
