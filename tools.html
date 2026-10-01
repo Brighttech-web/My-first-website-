@@ -1,176 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Resizer | Bright Dev</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tools | BrightDev</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header class="tool-header">
-    <a href="index.html" class="logo">Bright<span>Dev</span></a>
-    <a href="index.html" class="back-btn">← Back Home</a>
-  </header>
+    <!-- HEADER -->
+    <header class="site-header">
 
-  <main class="tool-page">
+        <div class="logo">
+            Bright<span>Dev</span>
+        </div>
 
-    <section class="tool-intro">
-      <h1>Image Resizer</h1>
-      <p>Resize your images quickly and easily with Bright Dev.</p>
-    </section>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html" class="active">Tools</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
 
-    <section class="resizer-card">
+    </header>
 
-      <label for="imageInput" class="upload-box">
-        <div class="upload-icon">📷</div>
-        <h2>Choose an Image</h2>
-        <p>Click here to upload your image</p>
-        <input type="file" id="imageInput" accept="image/*">
-      </label>
 
-      <div id="previewArea" class="preview-area" style="display:none;">
+    <!-- TOOLS HERO -->
+    <section class="tools-hero">
 
-        <img id="imagePreview" alt="Image Preview">
+        <div class="tools-hero-content">
 
-        <div class="size-controls">
+            <span class="small-title">
+                BRIGHTDEV TOOLS
+            </span>
 
-          <div class="input-group">
-            <label for="width">Width</label>
-            <input type="number" id="width">
-          </div>
+            <h1>
+                Simple tools for everyday work.
+            </h1>
 
-          <div class="input-group">
-            <label for="height">Height</label>
-            <input type="number" id="height">
-          </div>
+            <p>
+                Explore our collection of useful tools designed to
+                make your everyday tasks easier and faster.
+            </p>
 
         </div>
 
-        <label class="checkbox-label">
-          <input type="checkbox" id="lockRatio" checked>
-          Keep aspect ratio
-        </label>
-
-        <button id="resizeBtn" class="primary-btn">
-          Resize Image
-        </button>
-
-        <a id="downloadBtn" class="download-btn" style="display:none;">
-          Download Image
-        </a>
-
-      </div>
-
     </section>
 
-  </main>
 
-  <script>
-    const imageInput = document.getElementById("imageInput");
-    const imagePreview = document.getElementById("imagePreview");
-    const previewArea = document.getElementById("previewArea");
-    const widthInput = document.getElementById("width");
-    const heightInput = document.getElementById("height");
-    const lockRatio = document.getElementById("lockRatio");
-    const resizeBtn = document.getElementById("resizeBtn");
-    const downloadBtn = document.getElementById("downloadBtn");
 
-    let originalWidth = 0;
-    let originalHeight = 0;
-    let imageFile = null;
+    <!-- TOOLS -->
+    <main class="tools-container">
 
-    imageInput.addEventListener("change", function () {
+        <div class="tools-grid">
 
-      imageFile = this.files[0];
 
-      if (!imageFile) return;
+            <!-- CV BUILDER -->
+            <a href="cv-builder.html" class="tool-card">
 
-      const reader = new FileReader();
+                <div class="tool-icon">
+                    📄
+                </div>
 
-      reader.onload = function (event) {
+                <h2>
+                    CV Builder
+                </h2>
 
-        imagePreview.src = event.target.result;
+                <p>
+                    Create a clean and professional CV
+                    quickly and easily.
+                </p>
 
-        imagePreview.onload = function () {
+                <span class="tool-link">
+                    Open Tool →
+                </span>
 
-          originalWidth = imagePreview.naturalWidth;
-          originalHeight = imagePreview.naturalHeight;
+            </a>
 
-          widthInput.value = originalWidth;
-          heightInput.value = originalHeight;
 
-          previewArea.style.display = "block";
-        };
-      };
 
-      reader.readAsDataURL(imageFile);
-    });
+            <!-- IMAGE RESIZER -->
+            <a href="image-resizer.html" class="tool-card">
 
-    widthInput.addEventListener("input", function () {
+                <div class="tool-icon">
+                    🖼️
+                </div>
 
-      if (lockRatio.checked && originalWidth) {
+                <h2>
+                    Image Resizer
+                </h2>
 
-        const newWidth = Number(widthInput.value);
+                <p>
+                    Resize your images quickly while
+                    keeping them looking sharp.
+                </p>
 
-        heightInput.value = Math.round(
-          newWidth * originalHeight / originalWidth
-        );
-      }
-    });
+                <span class="tool-link">
+                    Open Tool →
+                </span>
 
-    heightInput.addEventListener("input", function () {
+            </a>
 
-      if (lockRatio.checked && originalHeight) {
 
-        const newHeight = Number(heightInput.value);
 
-        widthInput.value = Math.round(
-          newHeight * originalWidth / originalHeight
-        );
-      }
-    });
+            <!-- COMING SOON -->
+            <div class="tool-card coming-soon">
 
-    resizeBtn.addEventListener("click", function () {
+                <div class="tool-icon">
+                    ✨
+                </div>
 
-      if (!imageFile) return;
+                <h2>
+                    More Tools
+                </h2>
 
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
+                <p>
+                    More useful BrightDev tools are
+                    currently being developed.
+                </p>
 
-      const newWidth = Number(widthInput.value);
-      const newHeight = Number(heightInput.value);
+                <span class="tool-link">
+                    Coming Soon
+                </span>
 
-      if (newWidth <= 0 || newHeight <= 0) {
-        alert("Please enter a valid width and height.");
-        return;
-      }
+            </div>
 
-      canvas.width = newWidth;
-      canvas.height = newHeight;
 
-      ctx.drawImage(
-        imagePreview,
-        0,
-        0,
-        newWidth,
-        newHeight
-      );
+        </div>
 
-      canvas.toBlob(function (blob) {
+    </main>
 
-        const url = URL.createObjectURL(blob);
 
-        downloadBtn.href = url;
-        downloadBtn.download = "brightdev-resized-image.png";
-        downloadBtn.style.display = "inline-block";
 
-        downloadBtn.textContent = "⬇ Download Resized Image";
+    <!-- FOOTER -->
+    <footer>
 
-      }, "image/png");
-    });
-  </script>
+        <p>
+            © 2026 BrightDev. All rights reserved.
+        </p>
+
+    </footer>
+
 
 </body>
+
 </html>
